@@ -1,0 +1,35 @@
+# Eine Aufgabe = ein Ordner mit task.yaml, prompt.md (Aufgabe) und verify.md (Prüfauftrag).
+# Platzhalter: {RUN}, {MODEL}, {MCP}, {SYSTEM}, {PREFIX}, {AREA}, {PARENT_AREA}.
+# Bei jeder inhaltlichen Änderung einer benutzten Fassung 'version' erhöhen.
+id: bw-einkauf-datenfluss
+version: 2
+titel: 'Einkauf: 8 InfoObjects, 4 aDSOs, 2 Transformationen, 2 DTPs mit Filter, CompositeProvider, 3 Queries'
+zeitlimit_s: 2400
+pruefpunkte: 13
+anforderungen:
+- name: 1 InfoArea
+  werkzeuge: [create_infoarea]
+- name: 2 InfoObjects
+  werkzeuge: [create_infoobject, update_infoobject]
+- name: 3 aDSOs
+  werkzeuge: [create_adso, update_adso]
+- name: 4 Transformationen
+  werkzeuge: [create_transformation, update_transformation, set_transformation]
+- name: 5 DTPs
+  werkzeuge: [create_dtp, update_dtp]
+- name: 6 CompositeProvider
+  werkzeuge: [create_composite_provider, update_composite_provider]
+- name: 7 Queries
+  werkzeuge: [create_query, update_query]
+- name: 8 Aktivieren
+  werkzeuge: [activate]
+historie:
+- version: 1
+  datum: '2026-10-15'
+  notiz: Erste Fassung (Einkaufsdaten, vollständiger Datenfluss bis zur Query)
+- version: 1
+  datum: '2026-10-24'
+  notiz: DTP-Datumsfilter im Format TT.MM.JJJJ, Einheit ST/PC in der Prüfung
+- version: 2
+  datum: '2026-11-12'
+  notiz: AIArena4BW – BW-System, InfoArea und Präfix als Platzhalter

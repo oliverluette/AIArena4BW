@@ -1,0 +1,120 @@
+/* Einstellungen: nur, was die gemeinsamen Bausteine nicht abdecken. */
+
+/* Checkliste „bereit für den ersten Durchgang“: Zustand, Schritt, Weg dorthin. */
+.settings-ready {
+  list-style: none;
+  margin: 0;
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr) max-content;
+  column-gap: var(--sp-5);
+}
+.settings-ready li {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: subgrid;
+  align-items: baseline;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--line);
+}
+.settings-ready li:first-child {
+  padding-top: 0;
+}
+.settings-ready li:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+.section + .settings-tabs {
+  margin-top: var(--sp-7);
+}
+
+.settings-subtitle {
+  font-size: var(--fs-m);
+  font-weight: 600;
+  margin-bottom: var(--sp-1);
+}
+.settings-subtitle + p {
+  margin-bottom: var(--sp-3);
+}
+
+/* Aktionen am Zeilenende: rechtsbündig und eng; bei wenig Platz brechen sie um. */
+.settings-actions {
+  justify-content: flex-end;
+  gap: 0 var(--sp-1);
+}
+
+/* Gewählte Zeile einer Liste, deren Einzelheiten darunter stehen: die gelbe Markierzeile. */
+.table tr.is-selected td,
+.table tr.is-selected .muted,
+.table tr.is-selected .secondary {
+  background: var(--sel);
+  color: var(--sel-ink);
+}
+
+/* MCP-Editor */
+.settings-editor {
+  min-height: 460px;
+}
+.settings-testbar {
+  align-items: flex-end;
+}
+.settings-testbar .field {
+  min-width: 240px;
+}
+.settings-select {
+  width: auto;
+  min-width: 150px;
+  min-height: 32px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  background-position: calc(100% - 15px) 13px, calc(100% - 10px) 13px;
+}
+.settings-clip {
+  max-width: 62ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.settings-pair {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) max-content;
+  gap: var(--sp-2);
+  align-items: center;
+}
+.settings-env {
+  gap: var(--sp-2);
+}
+.settings-env > .row {
+  margin-top: var(--sp-2);
+}
+
+/* Modelle: viele Spalten, deshalb engere Zellen; der Name darf umbrechen, die ID nicht. */
+.settings-models th,
+.settings-models td {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+.settings-models td {
+  vertical-align: top;
+}
+.settings-name {
+  gap: var(--sp-2);
+  row-gap: 2px;
+}
+.settings-box {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+.settings-search {
+  width: 280px;
+}
+.settings-checks {
+  gap: var(--sp-2);
+  align-items: flex-start;
+}
+
+.settings-safety {
+  margin: var(--sp-1) 0 0;
+  padding-left: 1.2em;
+}

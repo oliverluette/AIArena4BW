@@ -1,0 +1,131 @@
+/* Lauf-Detail: Laufauswahl, Kennzahlen, Diagrammfläche, Protokoll. */
+
+.run-pick {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: var(--sp-5);
+  align-items: start;
+}
+
+.run-figures {
+  row-gap: var(--sp-5);
+}
+.run-figure__sub {
+  display: block;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Fläche, auf der jedes Diagramm steht. */
+.run-chart {
+  background: var(--chart-surface);
+  border: 1px solid var(--line);
+  padding: var(--sp-3);
+}
+
+.run-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.run-pre {
+  margin: 0;
+  padding: var(--sp-3) var(--sp-4);
+  background: var(--bg-deep);
+  font-family: var(--font-sans);
+  font-size: var(--fs-s);
+  line-height: 1.5;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.run-pre--code {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+}
+.run-pre--tall {
+  max-height: 70vh;
+  overflow: auto;
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+}
+.panel .run-pre {
+  padding: 0;
+  background: none;
+  font-size: var(--fs-m);
+}
+
+.run-fold > summary {
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--text-2);
+  padding: 4px 0;
+}
+.run-fold > summary:hover {
+  color: var(--text);
+}
+.run-fold[open] > summary {
+  margin-bottom: var(--sp-2);
+}
+
+/* Protokoll: Einträge an einer senkrechten Linie, wie die Achse der Bildmarke. */
+.run-log {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-left: 1px solid var(--line-strong);
+}
+.run-log__entry {
+  position: relative;
+  padding: var(--sp-3) 0 var(--sp-3) var(--sp-4);
+  border-bottom: 1px solid var(--line);
+}
+.run-log__entry::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 21px;
+  width: 8px;
+  height: 3px;
+  background: var(--bar-3);
+}
+.run-log__entry--error::before {
+  background: var(--fail);
+}
+.run-log__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--sp-3);
+  font-size: var(--fs-s);
+}
+.run-log__head strong {
+  font-size: var(--fs-m);
+  font-weight: 500;
+}
+.run-log__time {
+  min-width: 58px;
+}
+.run-log__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  margin-top: var(--sp-2);
+  padding-left: calc(58px + var(--sp-3));
+}
+.run-log__body:empty {
+  display: none;
+}
+.run-log__call {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+@media (max-width: 1180px) {
+  .run-pick {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .run-log__body {
+    padding-left: 0;
+  }
+}

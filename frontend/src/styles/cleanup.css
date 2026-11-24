@@ -1,0 +1,79 @@
+/* Seite „BW bereinigen“: drei Schritte untereinander, Objektlisten nach Lauf gruppiert. */
+
+/* Schrittnummer in der Auszeichnungsschrift, wie die Rangziffern der Übersicht. */
+.cleanup-step {
+  display: inline-block;
+  min-width: 26px;
+  font-size: var(--fs-xl);
+  font-weight: 700;
+  font-stretch: var(--narrow);
+  line-height: 0.8;
+  color: var(--text-3);
+}
+
+.cleanup-sub {
+  font-size: var(--fs-m);
+  font-weight: 500;
+}
+.cleanup-convention {
+  margin-top: var(--sp-4);
+  max-width: 96ch;
+}
+.cleanup-none {
+  margin-top: var(--sp-3);
+}
+.cleanup-runs {
+  max-width: 420px;
+}
+
+/* Viele Durchgänge bleiben in einem ruhigen, begrenzten Feld; die Kopfzeile bleibt stehen. */
+.cleanup-batches {
+  max-height: 322px;
+  margin-top: var(--sp-3);
+  overflow-y: auto;
+  border-bottom: 1px solid var(--line);
+}
+.cleanup-batches thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--bg);
+  border-bottom: 0;
+  box-shadow: inset 0 -1px 0 var(--line-strong);
+}
+.cleanup-batches tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.table .cleanup-check {
+  width: 40px;
+  padding-right: 0;
+}
+.cleanup-check .check {
+  display: flex;
+}
+
+.table tbody tr.cleanup-group td {
+  padding-top: var(--sp-3);
+  background: var(--surface);
+  border-bottom-color: var(--line-strong);
+  font-weight: 500;
+}
+.table tbody tr.cleanup-group:hover,
+.table tbody tr.cleanup-detail:hover {
+  background: none;
+}
+.table tbody tr.cleanup-detail > td {
+  padding: var(--sp-3) 0 var(--sp-5) var(--sp-6);
+  border-bottom-color: var(--line-strong);
+}
+.cleanup-message {
+  max-width: 56ch;
+  overflow-wrap: anywhere;
+}
+.cleanup-rest {
+  margin: var(--sp-5) 0 var(--sp-2);
+}
+.cleanup-rest-note {
+  margin-bottom: var(--sp-3);
+}

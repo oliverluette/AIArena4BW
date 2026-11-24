@@ -1,0 +1,36 @@
+# Daten der App und private Arbeitsdateien
+/data/
+/local/
+
+# Werkzeuge des Entwicklers (Claude Code: Skills, Agenten, persönliche Anweisungen)
+/.claude/
+CLAUDE.local.md
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+dist/
+build/
+
+# Oberfläche
+node_modules/
+/frontend/test-results/
+/frontend/playwright-report/
+/frontend/.vite/
+*.tsbuildinfo
+
+# Betriebssystem, Editor
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Geheimnisse nie einchecken
+.env
+.env.*
+*.pem
+*service-key*.json

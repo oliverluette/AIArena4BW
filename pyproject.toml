@@ -1,0 +1,63 @@
+[project]
+name = "aiarena4bw"
+version = "0.1.0"
+description = "KI-Modelle im direkten Vergleich. Auf echten SAP-BW-Aufgaben."
+readme = "README.md"
+license = "MIT"
+authors = [{ name = "Oliver Lütte" }]
+requires-python = ">=3.12"
+keywords = ["sap", "bw4hana", "llm", "benchmark", "mcp"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Web Environment",
+    "Intended Audience :: Developers",
+    "Natural Language :: German",
+    "Operating System :: MacOS",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Testing",
+]
+dependencies = [
+    "fastapi>=0.115",
+    "uvicorn>=0.32",
+    "httpx>=0.27",
+    "mcp>=1.12",
+    "keyring>=25",
+    "pyyaml>=6",
+    "anthropic>=1.0",
+]
+
+[project.urls]
+Repository = "https://github.com/oliverluette/AIArena4BW"
+Issues = "https://github.com/oliverluette/AIArena4BW/issues"
+
+[project.scripts]
+aiarena4bw = "aiarena4bw.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/aiarena4bw"]
+
+[dependency-groups]
+dev = [
+    "pytest>=8",
+    "pytest-asyncio>=0.24",
+    "ruff>=0.8",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+addopts = "-q"
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+extend-exclude = ["local", "frontend", "data"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+ignore = ["E501", "SIM108", "SIM105", "B008", "UP031"]

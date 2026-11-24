@@ -1,0 +1,159 @@
+/* Gestaltungsgrundlage der AIArena4BW: Richtung „Tabellenstand“ (DESIGN.md).
+   Heller Grund mit dunkler Schrift, dunkelgrüne Kopfleiste, Grün und Rot für das Prüfurteil,
+   Gelb allein für die Auswahl. Eine Schriftfamilie, in Tabellen und Überschriften schmal gesetzt. */
+
+:root,
+[data-theme='light'] {
+  color-scheme: light;
+
+  --bg: #f5f6f2;
+  --bg-deep: #eceee8;
+  --surface: #ffffff;
+  --surface-2: #f5f6f2;
+  --surface-3: #e6e9e3;
+  --line: #dde1da;
+  --line-strong: #9aa39c;
+  --text: #101612;
+  --text-2: #47524b;
+  --text-3: #5e6761;
+  --accent: #0e3b2a;
+  --accent-ink: #ffffff;
+  --focus: #0e3b2a;
+
+  /* Kopfleiste */
+  --head: #0e3b2a;
+  --head-ink: #ffffff;
+  --head-ink-2: #e9f2ec;
+  --head-line: #2c5a45;
+  --head-deep: #06241a;
+  --head-ok: #6be3a4;
+  --head-fail: #ff9a9a;
+  --head-warn: #ffd27a;
+
+  /* Auswahl: einzige Aufgabe der Farbe Gelb */
+  --sel: #ffe24a;
+  --sel-ink: #101612;
+
+  --pass: #0a7d45;
+  --fail: #c8102e;
+  --warn: #8a5a00;
+  --neutral: #5e6761;
+  --pass-soft: #e3f3ea;
+  --fail-soft: #fbe6e9;
+  --warn-soft: #f8eed6;
+  --info-soft: #e8efea;
+
+  --bar-1: #101612;
+  --bar-2: #47524b;
+  --bar-3: #9aa39c;
+  --hover: rgba(16, 22, 18, 0.05);
+  --backdrop: rgba(16, 22, 18, 0.5);
+  --shadow: 0 12px 32px rgba(16, 22, 18, 0.18);
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  --bg: #0e1411;
+  --bg-deep: #090e0b;
+  --surface: #151c18;
+  --surface-2: #1b231f;
+  --surface-3: #232d28;
+  --line: #27322c;
+  --line-strong: #5c6b63;
+  --text: #eef2ee;
+  --text-2: #b9c4bd;
+  --text-3: #94a199;
+  --accent: #7fd3a6;
+  --accent-ink: #0e1411;
+  --focus: #7fd3a6;
+
+  --head: #0b2e21;
+  --head-ink: #ffffff;
+  --head-ink-2: #e9f2ec;
+  --head-line: #24503d;
+  --head-deep: #041a12;
+  --head-ok: #6be3a4;
+  --head-fail: #ff9a9a;
+  --head-warn: #ffd27a;
+
+  --sel: #ffe24a;
+  --sel-ink: #101612;
+
+  --pass: #4cc98a;
+  --fail: #ff7a7a;
+  --warn: #e8b455;
+  --neutral: #94a199;
+  --pass-soft: #14291f;
+  --fail-soft: #331a1c;
+  --warn-soft: #2e2613;
+  --info-soft: #1a2620;
+
+  --bar-1: #eef2ee;
+  --bar-2: #b9c4bd;
+  --bar-3: #5c6b63;
+  --hover: rgba(238, 242, 238, 0.06);
+  --backdrop: rgba(0, 0, 0, 0.6);
+  --shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+}
+
+:root {
+  --font-sans: 'Archivo Variable', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  /* Schmale Schnitte derselben Familie: Überschriften und Tabellen. */
+  --narrow: 88%;
+  --narrower: 85%;
+
+  --fs-xs: 12px;
+  --fs-s: 13px;
+  --fs-m: 14px;
+  --fs-l: 15px;
+  --fs-xl: 17px;
+  --fs-2xl: 20px;
+  --fs-3xl: 24px;
+  --fs-4xl: 28px;
+
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 20px;
+  --sp-6: 24px;
+  --sp-7: 32px;
+  --sp-8: 48px;
+
+  --radius: 3px;
+  --bar-h: 46px;
+  --facets: 232px;
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+/* Diagrammfarben: kategorisch in fester Reihenfolge, nie nach Rang vergeben. Grün und Rot bleiben
+   dem Prüfurteil vorbehalten und kommen in den Reihen nicht vor. */
+:root,
+[data-theme='light'] {
+  --chart-surface: #ffffff;
+  --chart-grid: #e1e4de;
+  --series-1: #1f5fbf;
+  --series-2: #7a3fb8;
+  --series-3: #b8750a;
+  --series-4: #0e8c8c;
+  --series-5: #c2478a;
+  --series-6: #6b4f2a;
+  --series-7: #d2691e;
+  --series-8: #4f5d75;
+  --series-other: #7c857f;
+}
+[data-theme='dark'] {
+  --chart-surface: #151c18;
+  --chart-grid: #27322c;
+  --series-1: #6fa8ff;
+  --series-2: #b892f0;
+  --series-3: #e0a84a;
+  --series-4: #4cc4c4;
+  --series-5: #ee8abf;
+  --series-6: #c4a27a;
+  --series-7: #f0935a;
+  --series-8: #a3b1cc;
+  --series-other: #94a199;
+}

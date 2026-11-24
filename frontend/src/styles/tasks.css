@@ -1,0 +1,142 @@
+/* Seite „Aufgaben“: Formular links, Platzhalter und Vorschau als ruhige Fläche rechts. */
+
+.tasks-editor {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: var(--sp-6);
+  align-items: start;
+  margin-top: var(--sp-6);
+}
+
+.tasks-form .section,
+.tasks-side .section {
+  margin-top: var(--sp-6);
+}
+.tasks-form .section:first-child,
+.tasks-side .section:first-child {
+  margin-top: 0;
+}
+.tasks-form .section__head,
+.tasks-side .section__head {
+  margin-bottom: var(--sp-3);
+}
+.tasks-form .section__note,
+.tasks-side .section__note {
+  margin-top: var(--sp-1);
+  max-width: 78ch;
+}
+
+/* Nur lesbare Felder (feste ID, gesperrte Version) treten zurück, bleiben aber markierbar. */
+.tasks-form .input:read-only,
+.tasks-form .textarea:read-only {
+  border-color: var(--line);
+  color: var(--text-2);
+}
+.tasks-form .input:read-only:hover,
+.tasks-form .textarea:read-only:hover {
+  border-color: var(--line);
+}
+
+.tasks-text {
+  min-height: 20em;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.55;
+  tab-size: 2;
+}
+
+.tasks-reqs td {
+  padding: 5px 6px;
+}
+.tasks-reqs th {
+  padding: 8px 6px;
+}
+.tasks-reqs .input {
+  min-height: 34px;
+  padding: 6px 9px;
+}
+.tasks-reqs__name {
+  width: 32%;
+}
+.tasks-reqs .btn--quiet:hover:not(:disabled) {
+  color: var(--text);
+}
+.tasks-reqs__add {
+  margin-top: var(--sp-3);
+}
+
+/* Bleibt beim Blättern durch das lange Formular am unteren Rand erreichbar. */
+.tasks-savebar {
+  position: sticky;
+  bottom: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--sp-3) var(--sp-4);
+  margin-top: var(--sp-6);
+  padding: var(--sp-3) 0;
+  background: var(--bg);
+  border-top: 1px solid var(--line-strong);
+}
+.tasks-savebar__error {
+  flex-basis: 100%;
+}
+
+.tasks-side {
+  position: sticky;
+  top: var(--sp-4);
+  max-height: calc(100vh - var(--sp-6));
+  overflow-y: auto;
+}
+.tasks-side .tabs {
+  margin-bottom: var(--sp-4);
+}
+.tasks-side .notice + .notice {
+  margin-top: var(--sp-3);
+}
+.tasks-placeholders td,
+.tasks-placeholders th {
+  padding-left: 0;
+}
+.tasks-placeholders td {
+  vertical-align: top;
+}
+.tasks-placeholders code {
+  white-space: nowrap;
+}
+
+.tasks-preview {
+  margin: 0;
+  padding: var(--sp-4);
+  background: var(--bg-deep);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: 12.5px;
+  line-height: 1.55;
+}
+
+.tasks-issues {
+  margin: var(--sp-1) 0 0;
+  padding-left: 18px;
+}
+.tasks-notice-actions {
+  margin-top: var(--sp-3);
+}
+.tasks-subtitle {
+  margin-bottom: var(--sp-3);
+}
+.tasks-subnote {
+  margin: calc(-1 * var(--sp-2)) 0 var(--sp-3);
+}
+
+@media (max-width: 1180px) {
+  .tasks-editor {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .tasks-side {
+    position: static;
+    max-height: none;
+  }
+}

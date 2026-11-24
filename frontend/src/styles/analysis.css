@@ -1,0 +1,269 @@
+/* Auswertung: Filterspalte, Vergleichsdiagramm mit Steuerspalte, Diagrammflächen, gewählte Filterwerte. */
+
+/* Titelzeile mit Angabe rechts: Titel und Aktionen links, die Zahl der Läufe am rechten Rand. */
+.page__head--meta > :first-child {
+  flex: none;
+}
+.page__head--meta .page__actions {
+  flex: 1;
+  flex-wrap: wrap;
+}
+.page__meta {
+  margin-left: auto;
+  color: var(--text-2);
+  font-size: var(--fs-s);
+  white-space: nowrap;
+}
+.page__meta strong {
+  color: var(--text);
+}
+
+/* --------------------------------------------------------------------------- Filterspalte */
+
+.facet-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-stretch: var(--narrower);
+}
+.facet-list__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+/* Ein einziger Wert: Benennung, Wert und Zahl in einer Zeile. */
+.facet--one {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+.facet--one .facet__title {
+  margin: 0;
+}
+.facet {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+.facet legend,
+.facet__title {
+  padding: 0;
+  margin-bottom: 2px;
+  font-size: var(--fs-m);
+  font-weight: 700;
+  font-stretch: var(--narrow);
+  color: var(--text);
+}
+.facet__row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 22px;
+  min-width: 0;
+}
+.facet__row label,
+label.facet__row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex: 1;
+  min-width: 0;
+  cursor: pointer;
+}
+.facet__name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+label.facet__row .facet__name {
+  flex: 1;
+}
+.facet__n {
+  margin-left: auto;
+  color: var(--text-2);
+  font-variant-numeric: tabular-nums;
+}
+/* „nur“: zeigt allein diesen Wert; erscheint beim Darüberfahren und bei Tastaturfokus. */
+.facet__only {
+  width: 0;
+  padding: 0;
+  height: 18px;
+  border: 0 solid var(--line-strong);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text);
+  font-size: var(--fs-xs);
+  cursor: pointer;
+  overflow: hidden;
+  opacity: 0;
+}
+.facet__row:hover .facet__only,
+.facet__only:focus-visible {
+  width: auto;
+  padding: 0 5px;
+  border-width: 1px;
+  opacity: 1;
+}
+.facet__only:hover {
+  background: var(--surface-3);
+}
+.facet__two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: var(--sp-3);
+}
+
+/* --------------------------------------------------------------------------- Vergleichsdiagramm */
+
+.cmp {
+  display: flex;
+}
+.cmp__ctl {
+  width: 196px;
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px;
+  border-right: 1px solid var(--line);
+}
+.cmp__ctl .chips {
+  flex-wrap: nowrap;
+  gap: 0;
+}
+.cmp__ctl .chip {
+  flex: 1;
+  justify-content: center;
+  padding: 0 6px;
+  border-radius: 0;
+}
+.cmp__ctl .chip + .chip {
+  border-left: 0;
+}
+.cmp__main {
+  flex: 1;
+  min-width: 0;
+  padding: 6px 10px 8px;
+  background: var(--chart-surface);
+}
+.cmp__foot {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--sp-2);
+  font-size: var(--fs-xs);
+}
+.cmp__notes {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.analysis-wide {
+  grid-column: 1 / -1;
+}
+
+/* Dichte Tabelle: schmalere Zellen, damit alle Spalten der Modelltabelle bei 1440 px nebeneinander passen. */
+.table--dense th,
+.table--dense td {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+/* Zonenlinie: trennt nach Rang sortiert die Einträge mit voller Quote, das Mittelfeld und die unter 50 %. */
+.table tr.is-cut td {
+  border-bottom-color: var(--text);
+}
+
+/* Spaltengruppen der Modelltabelle: Bilanz, Kosten und Laufzeit, Form. */
+.table td.group,
+.table th.group {
+  border-left: 1px solid var(--line);
+}
+
+/* Fläche, auf der jedes Diagramm steht. */
+.chart-box {
+  background: var(--chart-surface);
+  border: 1px solid var(--line);
+  padding: var(--sp-2) var(--sp-3);
+}
+
+.chart-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-2);
+}
+.chart-controls .select {
+  min-width: 170px;
+}
+
+.chart-foot {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: var(--sp-2);
+}
+
+/* Gewählte Werte eines langen Filters: ausgeschrieben, einzeln entfernbar. */
+.picked {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.picked__item {
+  height: 22px;
+  gap: 2px;
+  padding-right: 0;
+  white-space: normal;
+}
+.picked__item button {
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--text-2);
+  cursor: pointer;
+}
+.picked__item button:hover {
+  color: var(--text);
+}
+
+.views-title {
+  margin: var(--sp-4) 0 var(--sp-2);
+  font-size: var(--fs-l);
+  font-weight: 700;
+  font-stretch: var(--narrow);
+}
+
+/* Schmaler als 1400 px: nachrangige Spalten der Modelltabelle treten zurück, damit Quote, Laufzeit und
+   Formkurve ohne Rollen sichtbar bleiben. */
+@media (max-width: 1399px) {
+  .col-wide {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .page__head {
+    flex-wrap: wrap;
+  }
+  .page__meta {
+    margin-left: 0;
+    white-space: normal;
+  }
+  .cmp {
+    flex-direction: column;
+  }
+  .cmp__ctl {
+    width: auto;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+}

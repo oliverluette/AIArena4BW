@@ -1,0 +1,56 @@
+/* Seite „Durchgang starten“: nur, was base.css nicht schon hat. */
+
+/* Die Vorschau läuft beim Blättern durch die Auswahl mit. */
+.start-side {
+  position: sticky;
+  top: var(--sp-5);
+  max-height: calc(100vh - 2 * var(--sp-5));
+  overflow-y: auto;
+}
+
+/* Vorlage: Auswahl und „Zurücksetzen“ in einer Zeile, die Schaltfläche auf Höhe des Feldes. */
+.start-template {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--sp-3);
+}
+.start-template .field {
+  flex: 1;
+  max-width: 560px;
+}
+
+.start-models {
+  max-height: 520px;
+  overflow: auto;
+}
+.start-models thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--bg);
+}
+
+.start-pick {
+  width: 36px;
+}
+.start-table tr.is-picked td {
+  background: var(--info-soft);
+}
+
+.start-search {
+  max-width: 300px;
+}
+
+.start-filter {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  align-items: center;
+  gap: var(--sp-2) var(--sp-4);
+}
+
+@media (max-width: 1180px) {
+  .start-side {
+    position: static;
+    max-height: none;
+  }
+}

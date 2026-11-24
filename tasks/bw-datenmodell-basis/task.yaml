@@ -1,0 +1,27 @@
+# Eine Aufgabe = ein Ordner mit task.yaml, prompt.md (Aufgabe) und verify.md (Prüfauftrag).
+# Platzhalter: {RUN}, {MODEL}, {MCP}, {SYSTEM}, {PREFIX}, {AREA}, {PARENT_AREA}.
+# Bei jeder inhaltlichen Änderung einer benutzten Fassung 'version' erhöhen.
+id: bw-datenmodell-basis
+version: 4
+titel: InfoArea, 3 InfoObjects, aDSO, aktivieren
+zeitlimit_s: 900
+pruefpunkte: 6
+anforderungen:
+- name: 1 InfoArea
+  werkzeuge: [create_infoarea]
+- name: 2 InfoObjects
+  werkzeuge: [create_infoobject, update_infoobject]
+- name: 3 aDSO
+  werkzeuge: [create_adso, update_adso]
+- name: 4 Aktivieren
+  werkzeuge: [activate]
+historie:
+- version: 2
+  datum: '2026-10-12'
+  notiz: Kennzahl als Betrag (CURR) mit fester Währung EUR; Prüfung verlangt CURR/EUR, DEC gilt als FEHLER
+- version: 3
+  datum: '2026-10-14'
+  notiz: Servername als Platzhalter {MCP}
+- version: 4
+  datum: '2026-11-12'
+  notiz: AIArena4BW – BW-System, InfoArea und Präfix als Platzhalter; Texte mit Umlauten
